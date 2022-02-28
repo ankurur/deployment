@@ -1,16 +1,9 @@
-FROM python:3
-#hello
-# set a directory for the app
-WORKDIR /usr/src/app
+FROM centos:7 
 
-# copy all the files to the container
-COPY . .
-
-# install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
-
-# tell the port number the container should expose
-EXPOSE 5000
-
-# run the command
-CMD ["python", "./app.py"]
+RUN yum update -y && yum install httpd httpd-tools -y
+WORKDIR /var/www/html/
+COPY index.html . 
+EXPOSE 80
+RUN yum install net-tools -y
+ 
+CMD ["/usr/sbin/httpd","-D","FOREGROUND"]
