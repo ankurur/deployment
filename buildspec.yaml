@@ -7,12 +7,17 @@ phases:
       - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
   build:
     commands:
+      - ls -lrt
+      - docker --version
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t simpleapi:latest .
-      - docker tag simpleapi:latest 012345678910.dkr.ecr.us-east-1.amazonaws.com/simple-api-codebuild:latest    
+      - docker build -t catnip:latest .
+      - docker tag catnip:latest 785517377502.dkr.ecr.us-east-2.amazonaws.com/catnip:latest    
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 012345678910.dkr.ecr.us-east-1.amazonaws.com/simple-api-codebuild:latest
+      - docker push 785517377502.dkr.ecr.us-east-2.amazonaws.com/catnip:latest
+artifacts:
+  files:
+    - '**/*'
