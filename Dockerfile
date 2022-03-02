@@ -1,4 +1,4 @@
-FROM 987240292938.dkr.ecr.ap-south-1.amazonaws.com/http:centos7
+FROM 525660028624.dkr.ecr.us-west-2.amazonaws.com/ankit-repo:centos
 
 RUN yum update -y && yum install httpd httpd-tools -y
 WORKDIR /var/www/html/
