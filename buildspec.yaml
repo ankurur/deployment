@@ -12,12 +12,12 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...          
       - docker build -t ankit-repo:latest .
-      - docker tag ankit-repo:latest public.ecr.aws/e0a9c7y2/ankit-repo
+      - docker tag ankit-repo:latest 525660028624.dkr.ecr.us-east-2.amazonaws.com/ankit-repo
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push public.ecr.aws/e0a9c7y2/ankit-repo
+      - docker push 525660028624.dkr.ecr.us-east-2.amazonaws.com/ankit-repo
 artifacts:
   files:
     - '**/*'
