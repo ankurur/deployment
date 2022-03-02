@@ -1,4 +1,4 @@
-version: 0.2
+version: 525660028624.dkr.ecr.us-west-2.amazonaws.com/ankit-repo/centos
 
 phases:
   pre_build:
