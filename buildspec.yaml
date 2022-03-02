@@ -18,6 +18,8 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push 525660028624.dkr.ecr.us-west-2.amazonaws.com/ankit-repo:latest
+      - printf '[{"name":"ankit-app","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
+      - cat imagedefinitions.json
 artifacts:
-  files:
+  files: imagedefinitions.json
     - '**/*'
