@@ -1,4 +1,4 @@
-FROM 525660028624.dkr.ecr.us-east-2.amazonaws.com/apache:centos
+FROM 525660028624.dkr.ecr.us-east-2.amazonaws.com/apache:latest
 
 RUN yum update -y && yum install httpd httpd-tools -y
 WORKDIR /var/www/html/
