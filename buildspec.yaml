@@ -13,8 +13,8 @@ phases:
       - docker --version
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t apache:latest .
-      - docker tag anks-repository:latest 525660028624.dkr.ecr.ap-northeast-1.amazonaws.com/anks-repository:latest
+      - docker build -t $REPOSITORY_URI:latest .
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:$IMAGE_TAG
   post_build:
     commands:
       - echo Build completed on `date`
