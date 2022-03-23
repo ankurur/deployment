@@ -1,4 +1,4 @@
-FROM Centos
+FROM centos
 
 RUN yum update -y && yum install httpd httpd-tools -y
 WORKDIR /var/www/html/
