@@ -1,4 +1,4 @@
-FROM 525660028624.dkr.ecr.us-west-2.amazonaws.com/ankit-repo
+FROM Centos
 
 RUN yum update -y && yum install httpd httpd-tools -y
 WORKDIR /var/www/html/
