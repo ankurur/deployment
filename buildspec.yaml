@@ -13,7 +13,7 @@ phases:
       - docker --version
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t ankit:latest .
+      - docker build -t project1:latest .
       - docker tag project1:latest 482085450016.dkr.ecr.us-east-1.amazonaws.com/project1:latest
   post_build:
     commands:
