@@ -5,7 +5,7 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - $(aws ecr get-login --no-include-email --region $AWS_DEFAULT_REGION)
-      - REPOSITORY_URI=482085450016.dkr.ecr.us-east-1.amazonaws.com/project1
+      - REPOSITORY_URI=482085450016.dkr.ecr.us-east-1.amazonaws.com/project2
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
@@ -13,13 +13,13 @@ phases:
       - docker --version
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t project1:latest .
-      - docker tag project1:latest 482085450016.dkr.ecr.us-east-1.amazonaws.com/project1:latest
+      - docker build -t project2:latest .
+      - docker tag project2:482085450016.dkr.ecr.us-east-1.amazonaws.com/project2:latest
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push 482085450016.dkr.ecr.us-east-1.amazonaws.com/project1:latest
+      - docker push 482085450016.dkr.ecr.us-east-1.amazonaws.com/project2:latest
       - printf '[{"name":"ankush","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
       - cat imagedefinitions.json
 artifacts:
